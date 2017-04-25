@@ -3,13 +3,13 @@
         <thead>
         <tr><th>Id</th><th>Title</th><th>Locked</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr>
         </thead>
-        <tbody data-bind="foreach: movies">
+        <tbody data-bind="foreach: documents">
         <tr>
             <td data-bind="text: id"></td>
             <td data-bind="text: title"></td>
-            <td data-bind="text: dueDate"></td>
+            <td data-bind="text: isCheckedOut"></td>
             <td><input type="button" value="Check Out" data-bind="click: checkout, enable: checkoutUrl" /></td>
-            <td><input type="button" value="Return" data-bind="click: returnMovie, enable: returnMovieUrl" /></td>
+            <td><input type="button" value="Return" data-bind="click: returnDocument, enable: returnDocumentUrl" /></td>
             <td><input type="checkbox" data-bind="checked: selected" /></td>
         </tr>
         </tbody>
@@ -20,11 +20,9 @@
 </div>
 <div>
     <input type="text" data-bind="value: title" />
-    <input type="button" value="Add Movie" data-bind="click: createMovie" />
+    <input type="button" value="Add Document" data-bind="click: createDocument" />
 </div>
 <div>
     <p data-bind="visible: errorMessage">Error: <span data-bind="text: errorMessage"></span></p>
 </div>
 
-@Scripts.Render("~/bundles/knockoutjs")
-@Scripts.Render("~/bundles/documents")

@@ -5,6 +5,8 @@ using System.Web.OData;
 using System.Web.OData.Routing;
 using PocOData.Data.EF;
 using PocOData.Data.Models;
+using Document = PocOData.Models.Document;
+using PocContext = PocOData.Models.PocContext;
 
 namespace PocOData.ApiController
 {
@@ -47,8 +49,7 @@ namespace PocOData.ApiController
 
             return Ok(document);
         }
-
-        // Check out a list of documents.
+        
         [HttpPost]
         public IHttpActionResult CheckOutMany(ODataActionParameters parameters)
         {

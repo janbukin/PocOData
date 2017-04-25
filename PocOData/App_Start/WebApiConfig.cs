@@ -4,6 +4,7 @@ using System.Web.OData.Extensions;
 using Microsoft.OData.Edm;
 using Microsoft.Owin.Security.OAuth;
 using PocOData.Data.Models;
+using Document = PocOData.Models.Document;
 
 namespace PocOData
 {
