@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace PocOData
 {
@@ -15,6 +14,12 @@ namespace PocOData
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/knockoutjs").Include(
+                "~/Scripts/knockout-3.4.2.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/documents").Include(
+                "~/Scripts/app/documents.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",

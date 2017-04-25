@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
+using System.Web.OData.Builder;
+using System.Web.OData.Extensions;
+using Microsoft.OData.Edm;
 using Microsoft.Owin.Security.OAuth;
-using Newtonsoft.Json.Serialization;
+using PocOData.Data.Models;
 
 namespace PocOData
 {
@@ -25,6 +24,38 @@ namespace PocOData
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.MapODataServiceRoute("OData", "odata", GetEdmModel());
+        }
+
+        private static IEdmModel GetEdmModel()
+        {
+            var modelBuilder = new ODataConventionModelBuilder();
+            var documentsEntitySet = modelBuilder.EntitySet<Document>("Documents");
+            
+            // URI: ~/odata/Documents(1)/ODataActionsSample.Models.CheckOut
+            var checkOutAction = modelBuilder.EntityType<Document>().Action("CheckOut");
+            checkOutAction.ReturnsFromEntitySet<Document>("Documents");
+
+            // URI: ~/odata/Documents(1)/ODataActionsSample.Models.Return
+            // Binds to a single entity; no parameters.
+            var returnAction = modelBuilder.EntityType<Document>().Action("Return");
+            returnAction.ReturnsFromEntitySet<Document>("Documents");
+            
+            // URI: ~/odata/Documents/ODataActionsSample.Models.CheckOutMany
+            // Binds to a collection of entities.  This action accepts a collection of parameters.
+            var checkOutManyAction = modelBuilder.EntityType<Document>().Collection.Action("CheckOutMany");
+            checkOutManyAction.CollectionParameter<int>("DocumentIDs");
+            checkOutManyAction.ReturnsCollectionFromEntitySet<Document>("Documents");
+
+            // URI: ~/odata/CreateDocument
+            // Unbound action. It is invoked from the service root.
+            var createDocumentAction = modelBuilder.Action("CreateDocument");
+            createDocumentAction.Parameter<string>("Title");
+            createDocumentAction.ReturnsFromEntitySet<Document>("Documents");
+
+            modelBuilder.Namespace = typeof(Document).Namespace;
+            return modelBuilder.GetEdmModel();
         }
     }
 }

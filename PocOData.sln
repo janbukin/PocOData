@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocOData", "PocOData\PocOData.csproj", "{FACB169D-7656-412B-BD5B-927B02AA9FC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocOData.Web", "PocOData\PocOData.Web.csproj", "{FACB169D-7656-412B-BD5B-927B02AA9FC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocOData.Data", "PocOData.Data\PocOData.Data.csproj", "{5A7020D3-3112-45BF-B382-6FB57357A3F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocOData.Data.EF", "PocOData.Data.EF\PocOData.Data.EF.csproj", "{E3F0464A-C42C-44AA-A100-C68F538F479D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{FACB169D-7656-412B-BD5B-927B02AA9FC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FACB169D-7656-412B-BD5B-927B02AA9FC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FACB169D-7656-412B-BD5B-927B02AA9FC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A7020D3-3112-45BF-B382-6FB57357A3F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A7020D3-3112-45BF-B382-6FB57357A3F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A7020D3-3112-45BF-B382-6FB57357A3F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A7020D3-3112-45BF-B382-6FB57357A3F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3F0464A-C42C-44AA-A100-C68F538F479D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3F0464A-C42C-44AA-A100-C68F538F479D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3F0464A-C42C-44AA-A100-C68F538F479D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3F0464A-C42C-44AA-A100-C68F538F479D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
